@@ -1,8 +1,10 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var app = express();
+app.use(morgan('combined'));
 
-var articleOne={
+var articleOne = {
     title: 'article one sharmadha',
     heading: 'article one',
     date:'sept 4',
@@ -19,8 +21,8 @@ var articleOne={
                     this is mycontent for my artcle this is mycontent for my artcle this is mycontent for my artcle this is mycontent for my artcle this is mycontent for my artcle this is mycontent for my artcle this is mycontent for my artcle
                     
                 </p>`
-};
 
+};
 function createTemplate(data)
 {
     var title=data.title;
@@ -50,10 +52,9 @@ var htmltemplate=`<html>
 return htmlTemplate;
 }
     
-`
 
-var app = express();
-app.use(morgan('combined'));
+
+
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -81,7 +82,12 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 
-var port = 8080;
+var port = 8080 ;
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+
+
+
+
+
